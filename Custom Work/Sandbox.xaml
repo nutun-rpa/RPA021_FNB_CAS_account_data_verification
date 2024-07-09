@@ -1,0 +1,718 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Sandbox" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1810,10098</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Sandbox_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Activities.System</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Sandbox" sap:VirtualizedContainerService.HintSize="1820,10033" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1758,9922" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="ui:UiElement" Name="ChromeElement" />
+        <Variable x:TypeArguments="x:String" Name="strAccountUploadStatus" />
+        <Variable x:TypeArguments="x:String" Name="str_SheetName" />
+        <Variable x:TypeArguments="x:String" Name="szCheetahDebtorName" />
+        <Variable x:TypeArguments="x:Int32" Name="int_CurrentLoopCounter" />
+        <Variable x:TypeArguments="x:Int32" Name="int_LoopMaxCount" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="1696,133" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="CHROME.EXE" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1696,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Amount of file being uploaded: &quot;+int_LoopMaxCount.ToString]" />
+      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1696,9284" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+        <TryCatch.Try>
+          <Sequence DisplayName="Main flow" sap:VirtualizedContainerService.HintSize="1658,9056" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="str_rootFolder" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1596,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_rootFolder]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">["C:\Users\TCRRPARobot\Documents\UiPath\RPA021_FNB_CAS_account_data_verification\FNB Testing data extractions.xlsx"]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_SheetName]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">FNB Loan</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[int_CurrentLoopCounter]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="1596,8727" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
+              <ueab:ExcelProcessScopeX.Body>
+                <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                  </ActivityAction.Argument>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="1562,8640" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ReadFormatting="DisplayValue" ResizeWindow="None" WorkbookPath="[str_rootFolder+&quot;\File names - S129 upload.xlsx&quot;]">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1528,8371" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Search - FNBCCard" sap:VirtualizedContainerService.HintSize="1466,8260" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Timeout="59" Version="V2">
+                            <uix:NApplicationCard.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                </ActivityAction.Argument>
+                                <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="1432,8043" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" Range="[Excel.Sheet(&quot;Sheet1&quot;)]" SaveAfterEachRow="True">
+                                  <ueab:ExcelForEachRowX.Body>
+                                    <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
+                                      <ActivityAction.Argument1>
+                                        <DelegateInArgument x:TypeArguments="ue:CurrentRowQuickHandle" Name="CurrentRow" />
+                                      </ActivityAction.Argument1>
+                                      <ActivityAction.Argument2>
+                                        <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                                      </ActivityAction.Argument2>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1398,7853" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                        <Sequence.Variables>
+                                          <Variable x:TypeArguments="x:String" Name="szReferenceNumber" />
+                                          <Variable x:TypeArguments="x:String" Name="szAccountNumber" />
+                                          <Variable x:TypeArguments="x:String" Name="DocumentName" />
+                                        </Sequence.Variables>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Retrieving Variables" sap:VirtualizedContainerService.HintSize="1336,685" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                          <Sequence.Variables>
+                                            <Variable x:TypeArguments="x:String" Name="str_CurrentLineIndex" />
+                                          </Sequence.Variables>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign DisplayName="Assign - Document Name" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[DocumentName]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[CurrentRow.Item("Document Name").ToString]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign DisplayName="Assign - szReferenceNumber" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[szReferenceNumber]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[CurrentRow.Item("szReferenceNumber").ToString]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign DisplayName="Assign - szAccountNumber" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[szAccountNumber]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[CurrentRow.Item("szAccountNumber").ToString]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign DisplayName="Assign - getStatus" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[strAccountUploadStatus]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[CurrentRow.Item("Status").ToString]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign DisplayName="Assign - szCheetahDebtorName" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[szCheetahDebtorName]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[CurrentRow.Item("Cheetah Debtor Name").ToString.ToLower]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                        <If Condition="[String.IsNullOrEmpty(strAccountUploadStatus)]" DisplayName="If - Status status null - Upload the file" sap:VirtualizedContainerService.HintSize="1336,7013" sap2010:WorkflowViewState.IdRef="If_4">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="1302,6600" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1260,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Uploading | szRef: &quot;+szReferenceNumber+vbCrLf+&quot;szAcc: &quot;+szAccountNumber+vbCrLf+&quot;Doc Name: &quot;+DocumentName]" />
+                                              <Sequence DisplayName="Data entry and Navigation" sap:VirtualizedContainerService.HintSize="1260,5259" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="x:String" Name="getAccountSelectedText" />
+                                                  <Variable x:TypeArguments="x:String" Name="debtorName" />
+                                                </Sequence.Variables>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1198,52" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <TryCatch.Try>
+                                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter szAccountNumber" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Text="[szAccountNumber + &quot;[k(Enter)]&quot;]" Version="V3">
+                                                      <uix:NTypeInto.Target>
+                                                        <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/DebtSearch" DesignTimeRectangle="194, 225, 286, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MainContent_Accou…'" FullSelectorArgument="&lt;webctrl id='MainContent_AccountTextBox' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_AccountTextBox' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="878de1d6-4513-4982-8d9c-0f2c677a5aec" ImageBase64="" InformativeScreenshot="177995b7520e9fc6a797bad180014a6a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBCCard' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Visible" WaitForReadyArgument="Complete" />
+                                                      </uix:NTypeInto.Target>
+                                                    </uix:NTypeInto>
+                                                  </TryCatch.Try>
+                                                  <TryCatch.Catches>
+                                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ActivityAction x:TypeArguments="s:Exception">
+                                                        <ActivityAction.Argument>
+                                                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                        </ActivityAction.Argument>
+                                                        <Sequence sap:VirtualizedContainerService.HintSize="450,459" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <Delay Duration="00:00:30" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                                                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter szAccountNumber" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="DebuggerApi" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Text="[szAccountNumber + &quot;[k(Enter)]&quot;]" Version="V3">
+                                                            <uix:NTypeInto.Target>
+                                                              <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/DebtSearch" DesignTimeRectangle="194, 225, 286, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MainContent_Accou…'" FullSelectorArgument="&lt;webctrl id='MainContent_AccountTextBox' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_AccountTextBox' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="878de1d6-4513-4982-8d9c-0f2c677a5aec" ImageBase64="" InformativeScreenshot="177995b7520e9fc6a797bad180014a6a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBCCard' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Visible" WaitForReadyArgument="Complete" />
+                                                            </uix:NTypeInto.Target>
+                                                          </uix:NTypeInto>
+                                                        </Sequence>
+                                                      </ActivityAction>
+                                                    </Catch>
+                                                  </TryCatch.Catches>
+                                                </TryCatch>
+                                                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1198,385" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                                                  <TryCatch.Try>
+                                                    <uix:NGetText DisplayName="Get Text - the szAccountNumber" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" TextString="[getAccountSelectedText]" Version="V3">
+                                                      <uix:NGetText.Target>
+                                                        <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=344728" DesignTimeRectangle="561, 185, 105, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'XXXXXXXX21325000'" FullSelectorArgument="&lt;webctrl id='MainContent_DebtorAccountAndID' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_DebtorAccountAndID' tag='SPAN' type='' class='' /&gt;" Guid="9ae25b67-50e7-4247-9dcb-ab1e537b48c0" ImageBase64="" InformativeScreenshot="d505517324cd9c770423e5b79d0370bc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                                      </uix:NGetText.Target>
+                                                    </uix:NGetText>
+                                                  </TryCatch.Try>
+                                                  <TryCatch.Catches>
+                                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ActivityAction x:TypeArguments="s:Exception">
+                                                        <ActivityAction.Argument>
+                                                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                        </ActivityAction.Argument>
+                                                        <uix:NCheckState DisplayName="Check App State 'Error: No'" sap:VirtualizedContainerService.HintSize="1000,556" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Version="V3">
+                                                          <uix:NCheckState.IfExists>
+                                                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,339" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <ueab:WriteCellX Cell="[Excel.Sheet(str_SheetName).Cell(&quot;F&quot;+(CurrentIndex+1).ToString)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[&quot;Account not found&quot;]" />
+                                                              <ui:Continue sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                                                            </Sequence>
+                                                          </uix:NCheckState.IfExists>
+                                                          <uix:NCheckState.IfNotExists>
+                                                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </Sequence>
+                                                          </uix:NCheckState.IfNotExists>
+                                                          <uix:NCheckState.Target>
+                                                            <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/DebtSearch" CvTextArea="127, 308, 195, 12" CvTextArgument="Error: No accounts found based on search" CvType="Text" DesignTimeRectangle="21, 300, 316, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Error: No'" FullSelectorArgument="&lt;webctrl id='MainContent_errorLabel' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_errorLabel' tag='LABEL' type='' class='control-label  col-sm-2 col-md-2 col-lg-2 text-danger ' aaname='Error: No accounts found based on search' check:innerText='Error: No accounts found based on search' /&gt;" Guid="602a3664-2203-4f6f-8b3c-acd6180e647d" InformativeScreenshot="cef971807a66f4c68624f9f0490a8d85.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBCCard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                                              <uix:TargetAnchorable.Anchors>
+                                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                                  <uix:Target CvElementArea="1836, 298, 64, 37" CvTextArea="127, 308, 1760, 15" CvTextArgument="Error: No accounts found based on search Search" CvType="Button" DesignTimeRectangle="21, 300, 1894, 34" ElementType="Button" FriendlyName="'Error: No'" FullSelectorArgument="&lt;webctrl class='row' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='row' tag='DIV' type='' aaname='                                                                ' check:innerText='Error: No accounts found based on search' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, CV" />
+                                                                </scg:List>
+                                                              </uix:TargetAnchorable.Anchors>
+                                                            </uix:TargetAnchorable>
+                                                          </uix:NCheckState.Target>
+                                                        </uix:NCheckState>
+                                                      </ActivityAction>
+                                                    </Catch>
+                                                  </TryCatch.Catches>
+                                                </TryCatch>
+                                                <uix:NGetText DisplayName="Get Text - DebtorName" sap:VirtualizedContainerService.HintSize="1198,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" TextString="[debtorName]" Version="V3">
+                                                  <uix:NGetText.Target>
+                                                    <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=345078" DesignTimeRectangle="689, 185, 140, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Mr Radebe (Siphamandla)'" FullSelectorArgument="&lt;webctrl id='MainContent_DebtorName' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_DebtorName' tag='SPAN' type='' class='' /&gt;" Guid="b711010c-9315-4595-a3f6-f313c7a7cfc6" ImageBase64="" InformativeScreenshot="5d73767fe1df0aed7c5751d2b06a892f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive" />
+                                                  </uix:NGetText.Target>
+                                                </uix:NGetText>
+                                                <If Condition="[getAccountSelectedText.Trim.Equals(szAccountNumber.Trim) AND debtorName.ToLower.contains(szCheetahDebtorName.Trim)]" DisplayName="If - Test if correct account is selected" sap:VirtualizedContainerService.HintSize="1198,4434" sap2010:WorkflowViewState.IdRef="If_2">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <If.Then>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="1164,4021" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="x:String" Name="strUploadedFileString" />
+                                                      </Sequence.Variables>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1122,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Verified acc..entering details&quot;]" />
+                                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Documents'" sap:VirtualizedContainerService.HintSize="1122,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Version="V3">
+                                                        <uix:NClick.Target>
+                                                          <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=344728" DesignTimeRectangle="441, 171, 103, 42" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Documents'" FullSelectorArgument="&lt;webctrl aaname='Documents' aria-role='tab' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Documents' aria-role='tab' tag='A' type='' class='' check:innerText='Documents' /&gt;" Guid="bac2d009-b440-4f8a-a94c-a92ba954be06" ImageBase64="" InformativeScreenshot="3713da0125345af10db3430e61784198.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                                        </uix:NClick.Target>
+                                                      </uix:NClick>
+                                                      <uix:NSelectItem DisplayName="Select Item 'Select Document Type'" sap:VirtualizedContainerService.HintSize="1122,157" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Other Type" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Version="V3">
+                                                        <uix:NSelectItem.Items>
+                                                          <scg:List x:TypeArguments="x:String" Capacity="35">
+                                                            <x:String>Select Document Type</x:String>
+                                                            <x:String>Summons</x:String>
+                                                            <x:String>S57 Document</x:String>
+                                                            <x:String>S58 Document</x:String>
+                                                            <x:String>Voice PTP</x:String>
+                                                            <x:String>Voice AOD</x:String>
+                                                            <x:String>Judgment</x:String>
+                                                            <x:String>Form 17</x:String>
+                                                            <x:String>Death Certificate</x:String>
+                                                            <x:String>Pre-Agreement Document</x:String>
+                                                            <x:String>Affordability Document</x:String>
+                                                            <x:String>Certificate of Balance</x:String>
+                                                            <x:String>Affidavit</x:String>
+                                                            <x:String>Administration Order</x:String>
+                                                            <x:String>Other Type</x:String>
+                                                            <x:String>Statement</x:String>
+                                                            <x:String>Lost Document Affidavit</x:String>
+                                                            <x:String>Debt Review - Form 17.1 Received</x:String>
+                                                            <x:String>Debt Review - CoB Sent</x:String>
+                                                            <x:String>Debt Review - Form 17.2 Received</x:String>
+                                                            <x:String>Debt Review - Proposal Received</x:String>
+                                                            <x:String>Debt Review - Proposal Accepted</x:String>
+                                                            <x:String>Debt Review - Proposal Rejected</x:String>
+                                                            <x:String>Debt Review - Notice of Court Application Received</x:String>
+                                                            <x:String>Debt Review - Court Application Query Received</x:String>
+                                                            <x:String>Debt Review - Debt Review Court Order Received</x:String>
+                                                            <x:String>Debt Review - Account excluded from Court Order</x:String>
+                                                            <x:String>Debt Review - Debt Restructured</x:String>
+                                                            <x:String>Debt Review - Court Order Default</x:String>
+                                                            <x:String>Debt Review - Pre - Terminated Request</x:String>
+                                                            <x:String>Debt Review - Form 17.W Received</x:String>
+                                                            <x:String>Debt Review - Form 17.7 Received</x:String>
+                                                            <x:String>Debt Review - Debt Review Terminated S86(10)</x:String>
+                                                            <x:String>Debt Review - Other Type</x:String>
+                                                            <x:String>Letter</x:String>
+                                                          </scg:List>
+                                                        </uix:NSelectItem.Items>
+                                                        <uix:NSelectItem.Target>
+                                                          <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=344728" DesignTimeRectangle="854, 274, 501, 34" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Select Document Type'" FullSelectorArgument="&lt;webctrl id='DocumentTypeDropDownList' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='DocumentTypeDropDownList' tag='SELECT' type='' class='form-control docddl' aaname='' /&gt;" Guid="26cbc3b0-b95e-4fae-868a-fdb068c3ae71" ImageBase64="" InformativeScreenshot="328501634f16a234e0931956359e9b4d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                                        </uix:NSelectItem.Target>
+                                                      </uix:NSelectItem>
+                                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT DocumentDescripti…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1122,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Text="S129 notice" Version="V3">
+                                                        <uix:NTypeInto.Target>
+                                                          <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=344728" DesignTimeRectangle="1561, 274, 324, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT DocumentDescripti…'" FullSelectorArgument="&lt;webctrl id='DocumentDescriptionTextBox' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='DocumentDescriptionTextBox' tag='INPUT' type='text' class='form-control docdescbox' aaname='' /&gt;" Guid="7e73e7f6-0b0b-44d4-9e41-83aaf5f833b6" ImageBase64="" InformativeScreenshot="eea605af5141d2f4a54f4cf823b9b3d0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                                        </uix:NTypeInto.Target>
+                                                      </uix:NTypeInto>
+                                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'INPUT MainContent_input…'" sap:VirtualizedContainerService.HintSize="1122,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Version="V3">
+                                                        <uix:NClick.Target>
+                                                          <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=344728" DesignTimeRectangle="854, 341, 1032, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MainContent_input…'" FullSelectorArgument="&lt;webctrl id='MainContent_inputFileUpload' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_inputFileUpload' tag='INPUT' type='file' class='form-control docinput' aaname='' /&gt;" Guid="8e7c8045-0a73-49f6-b19e-5b7d3282f788" ImageBase64="" InformativeScreenshot="d6c3ba1cfc9f4e20f6388463054ca715.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                                        </uix:NClick.Target>
+                                                      </uix:NClick>
+                                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Edit'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1122,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="Simulate" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Text="[str_rootFolder+&quot;\&quot;+szReferenceNumber+&quot;.pdf&quot;]" Version="V3">
+                                                        <uix:NTypeInto.Target>
+                                                          <uix:TargetAnchorable DesignTimeRectangle="201, 470, 514, 15" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Edit'" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" Guid="37ebe1bf-7411-4f3e-84e7-cb360554c90d" ImageBase64="" InformativeScreenshot="720715bc8684deda1f4fa6cc3a7508d2.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                                        </uix:NTypeInto.Target>
+                                                      </uix:NTypeInto>
+                                                      <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1.5" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="1122,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Version="V3">
+                                                        <uix:NClick.Target>
+                                                          <uix:TargetAnchorable DesignTimeRectangle="747, 494, 88, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Open' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Open' check:text='unchecked' /&gt;" Guid="3ad5b549-cb7c-453a-9c97-341d7c08bb63" ImageBase64="" InformativeScreenshot="ae4497711fc436647ba5e1f7b44ed03d.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                                        </uix:NClick.Target>
+                                                      </uix:NClick>
+                                                      <uix:NGetText DisplayName="Get Text 'C:\fakepath\02780007956…'" sap:VirtualizedContainerService.HintSize="1122,157" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" TextString="[strUploadedFileString]" Version="V3">
+                                                        <uix:NGetText.Target>
+                                                          <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=345078" DesignTimeRectangle="854, 341, 1032, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'C:\fakepath\02780007956…'" FullSelectorArgument="&lt;webctrl id='MainContent_inputFileUpload' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_inputFileUpload' tag='INPUT' type='file' class='form-control docinput' aaname='' /&gt;" Guid="b6bb984f-fc8c-4877-bbba-6c99d8604b88" ImageBase64="" InformativeScreenshot="2d6701bf9e41db8d6309f05af1abd6c9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive" />
+                                                        </uix:NGetText.Target>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </uix:NGetText>
+                                                      <If Condition="[strUploadedFileString.Contains(szReferenceNumber)]" sap:VirtualizedContainerService.HintSize="1122,2249" sap2010:WorkflowViewState.IdRef="If_1">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <If.Then>
+                                                          <Sequence sap:VirtualizedContainerService.HintSize="1088,1637" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Upload Document'" sap:VirtualizedContainerService.HintSize="1046,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Version="V3">
+                                                              <uix:NClick.Target>
+                                                                <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=344943" DesignTimeRectangle="1782, 401, 118, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Upload Document'" FullSelectorArgument="&lt;webctrl id='AddDocumentButton' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AddDocumentButton' tag='INPUT' type='submit' class='aspNetDisabled btn btn-success' aaname='Upload Document' check:text='Upload Document' /&gt;" Guid="283b28da-edb7-49e5-9cfa-1c4c8481db1f" ImageBase64="" InformativeScreenshot="93d1be2d1c05da20df50eb0888607726.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                                              </uix:NClick.Target>
+                                                            </uix:NClick>
+                                                            <uix:NCheckState DisplayName="Check App State 'S129 notice'" sap:VirtualizedContainerService.HintSize="1046,1352" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Timeout="30" Version="V3">
+                                                              <uix:NCheckState.IfExists>
+                                                                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,1135" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Uploaded doc verified&quot;]" />
+                                                                  <uix:NTakeScreenshot DisplayName="Take Screenshot" FileName="[&quot;\\tcr-legaldocs\LegalDocs\RPA - FNB project\Robotics\Screenshot\&quot;+szAccountNumber+&quot;.png&quot;]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="434,240" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" Version="V3" />
+                                                                  <ueab:WriteCellX Cell="[Excel.Sheet(str_SheetName).Cell(&quot;D&quot;+(CurrentIndex+1).ToString)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[debtorName]" />
+                                                                  <ueab:WriteCellX Cell="[Excel.Sheet(str_SheetName).Cell(&quot;F&quot;+(CurrentIndex+1).ToString)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[&quot;Success&quot;]" />
+                                                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="\\tcr-legaldocs\LegalDocs\RPA - FNB project\1 - Uploads\FNB S129 letters\Loans" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_1" Path="[str_rootFolder+&quot;\&quot;+szReferenceNumber+&quot;.pdf&quot;]" />
+                                                                </Sequence>
+                                                              </uix:NCheckState.IfExists>
+                                                              <uix:NCheckState.IfNotExists>
+                                                                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,945" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <uix:NTakeScreenshot DisplayName="Take Screenshot" FileName="[&quot;\\tcr-legaldocs\LegalDocs\RPA - FNB project\Robotics\Screenshot\&quot;+szAccountNumber+&quot;.png&quot;]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="434,240" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_2" Version="V3" />
+                                                                  <ui:SendMail Bcc="{x:Null}" Body="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DisplayName="Send SMTP Original - Upload Confirmation" Email="no-replyrpa@nutun.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="25" SecureConnection="Auto" Server="192.168.9.40" Subject="RPA018 :Failed " To="kobusd@nutun.com">
+                                                                    <ui:SendMail.Files>
+                                                                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                                                        <InArgument x:TypeArguments="x:String">["\\tcr-legaldocs\LegalDocs\RPA - FNB project\Robotics\Screenshot\"+szAccountNumber+".png"]</InArgument>
+                                                                      </scg:List>
+                                                                    </ui:SendMail.Files>
+                                                                  </ui:SendMail>
+                                                                  <ueab:WriteCellX Cell="[Excel.Sheet(str_SheetName).Cell(&quot;D&quot;+(CurrentIndex+1).ToString)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_4" Value="[debtorName]" />
+                                                                  <ueab:WriteCellX Cell="[Excel.Sheet(str_SheetName).Cell(&quot;F&quot;+(CurrentIndex+1).ToString)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_5" Value="[&quot;Failed upload confirmation&quot;]" />
+                                                                </Sequence>
+                                                              </uix:NCheckState.IfNotExists>
+                                                              <uix:NCheckState.Target>
+                                                                <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/ViewCase?DebtCode=346336" DesignTimeRectangle="379, 303, 168, 34" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'S129 notice'" FullSelectorArgument="&lt;webctrl parentid='documents' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='4' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='documents' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' aaname='*S129 notice*' check:innerText='S129 notice' /&gt;" Guid="a395038f-1632-4337-a845-e78d46cf8784" ImageBase64="" InformativeScreenshot="56c34e1ae4c6e54adcf5df18f9bacc64.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                                                  <uix:TargetAnchorable.Anchors>
+                                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                                      <uix:Target DesignTimeRectangle="41, 309, 23, 19" ElementType="Text" FriendlyName="'View'" FullSelectorArgument="&lt;webctrl parentid='documents' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='documents' tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='' aaname='View' check:innerText='View' /&gt;" SearchSteps="FuzzySelector" />
+                                                                    </scg:List>
+                                                                  </uix:TargetAnchorable.Anchors>
+                                                                </uix:TargetAnchorable>
+                                                              </uix:NCheckState.Target>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </uix:NCheckState>
+                                                          </Sequence>
+                                                        </If.Then>
+                                                        <If.Else>
+                                                          <Sequence sap:VirtualizedContainerService.HintSize="476,430" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Uploaded doc not verified!&quot;]" />
+                                                            <ueab:WriteCellX Cell="[Excel.Sheet(&quot;str_SheetName&quot;).Cell(&quot;F&quot;+(CurrentIndex+1).ToString)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_6" Value="[&quot;Failed&quot;]" />
+                                                          </Sequence>
+                                                        </If.Else>
+                                                      </If>
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="376,231" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Fatal]" Message="[&quot;Acc NOT Verified! &quot;+getAccountSelectedText+&quot; vs &quot;+szAccountNumber]" />
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                              <Sequence DisplayName="Final Navi" sap:VirtualizedContainerService.HintSize="1260,193" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="https://fnbloans.revenuered.com/General/Common/DebtSearch" Version="V3" />
+                                              </Sequence>
+                                              <Assign sap:VirtualizedContainerService.HintSize="1260,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[int_CurrentLoopCounter]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[int_CurrentLoopCounter +1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <If Condition="[int_CurrentLoopCounter = int_LoopMaxCount]" sap:VirtualizedContainerService.HintSize="1260,675" sap2010:WorkflowViewState.IdRef="If_3">
+                                                <If.Then>
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,493" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;LoopCount Exceeded - exit loop&quot;]" />
+                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="10" DisplayName="Click 'Log off'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="681805f7-ddd2-4f4f-9e4c-1c193e79adbb" Version="V3">
+                                                      <uix:NClick.Target>
+                                                        <uix:TargetAnchorable BrowserURL="https://fnbloans.revenuered.com/General/Common/DebtSearch" CvTextArea="1671, 126, 44, 16" CvTextArgument="Log off" CvType="Text" DesignTimeRectangle="1656, 108, 73, 50" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Log off'" FullSelectorArgument="&lt;webctrl aaname='Log off' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Log off' tag='A' type='' class='' check:innerText='Log off' /&gt;" Guid="9d8357b3-8e17-4f42-b70c-183c912107ff" InformativeScreenshot="83d8dd8cbf74df644ecdfae6061769dc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBLoans' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                                      </uix:NClick.Target>
+                                                    </uix:NClick>
+                                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                                  </Sequence>
+                                                </If.Then>
+                                                <If.Else>
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="300,81" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Sequence>
+                                                </If.Else>
+                                              </If>
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="376,231" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Line skipped - &quot;+szAccountNumber +&quot; | &quot;+strAccountUploadStatus]" />
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </ueab:ExcelForEachRowX.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ueab:ExcelForEachRowX>
+                              </ActivityAction>
+                            </uix:NApplicationCard.Body>
+                            <uix:NApplicationCard.TargetApp>
+                              <uix:TargetApp Area="1912, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="12142ea4daeb229741ca6629e70cc924.jpg" Selector="&lt;html app='chrome.exe' title='Search - FNBCCard' /&gt;" Title="Search - FNBCCard" Url="https://fnbloans.revenuered.com/General/Common/DebtSearch" />
+                            </uix:NApplicationCard.TargetApp>
+                          </uix:NApplicationCard>
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                  </ueab:ExcelApplicationCard>
+                </ActivityAction>
+              </ueab:ExcelProcessScopeX.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ueab:ExcelProcessScopeX>
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1662,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <ui:SendMail Bcc="{x:Null}" Body="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DisplayName="Send SMTP Original - Upload Confirmation" Email="no-replyrpa@nutun.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,149" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Port="25" SecureConnection="Auto" Server="192.168.9.40" Subject="RPA018 CAS Uploads: Mainflow Failure" To="kobusd@nutun.com">
+                <ui:SendMail.Files>
+                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                </ui:SendMail.Files>
+              </ui:SendMail>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
+      <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="1696,133" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="CHROME.EXE" />
+    </Sequence>
+  </Sequence>
+</Activity>
