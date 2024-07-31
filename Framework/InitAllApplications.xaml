@@ -3,11 +3,12 @@
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="outChromeElementLoans" Type="OutArgument(ui:UiElement)" />
     <x:Property Name="outChromeElementCards" Type="OutArgument(ui:UiElement)" />
+    <x:Property Name="in_ProcessingProductType" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1524,1598</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1515,2828</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -117,9 +118,9 @@
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="552,1453" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1308,2723" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="str_CARDSPass" />
+      <Variable x:TypeArguments="x:String" Default="@Passwordjune2023" Name="str_CARDSPass" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -127,275 +128,291 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="490,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="490,52" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <TryCatch.Try>
-        <Sequence DisplayName="Cards Login" sap:VirtualizedContainerService.HintSize="546,409" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1246,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
+    <If Condition="[in_ProcessingProductType.Equals(&quot;loans&quot;)]" DisplayName="If - Determine which logins is being required" sap:VirtualizedContainerService.HintSize="1246,2149" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1212,1582" sap2010:WorkflowViewState.IdRef="Sequence_22">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: View Case - FNBCCard" sap:VirtualizedContainerService.HintSize="484,298" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[outChromeElementCards]" ScopeGuid="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Version="V2" WindowResize="Maximize">
-            <uix:NApplicationCard.Body>
-              <ActivityAction x:TypeArguments="x:Object">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <uix:NCheckState DisplayName="Check App State 'email'" sap:VirtualizedContainerService.HintSize="954,1031" sap2010:WorkflowViewState.IdRef="NCheckState_2" Timeout="7" Version="V3">
-                    <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Already logged in&quot;]" />
-                      </Sequence>
-                    </uix:NCheckState.IfExists>
-                    <uix:NCheckState.IfNotExists>
-                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,774" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="FNB CAS CARDS LOGIN" CacheStrategy="None" DisplayName="Get Asset" FolderPath="TCR_Main" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
-                          <ui:GetRobotAsset.Value>
-                            <OutArgument x:TypeArguments="x:String">[str_CARDSPass]</OutArgument>
-                          </ui:GetRobotAsset.Value>
-                        </ui:GetRobotAsset>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="[str_CARDSPass]" Version="V3">
-                          <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" CvElementArea="231, 372, 509, 37" CvType="InputBox" DesignTimeRectangle="234, 374, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT MainContent_Passw…'" FullSelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' type='password' class='form-control' aaname='Password' /&gt;" Guid="b9d11ae9-2cd7-44df-b725-dc2b517540e4" InformativeScreenshot="a2a7bd0525cf80646563d424bf227fca.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                              <uix:TargetAnchorable.Anchors>
-                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                  <uix:Target CvTextArea="137, 384, 67, 13" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="137, 384, 67, 13" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' class='col-md-2 control-label' check:innerText='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANoAAAAfCAYAAACBONPcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVHhe7ZjRjYMwDEBvp66VUZiGUVijQ+RciJPYISdOqpFavSf5o2CSIPnFoT9C9gEA70W8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRIMJzzWnxyM/TmLZSs5X8sxrer3nkt/1muIVosGEP0R7xffKhmhwJypaWqX0Gs817aKlVa9ueekEHCTcFnNvNl4NfVifq4PpPCm3qY+cuha/OdiFlOeXvCz2fr+GtG6IBjdySTTd/X2UIp11RS+Ti2PsIobO342lYm27MEW82Vx1/ZMNYbIGRIN7mBXuHl1XMah4rvhNZ+nwHcnRi2Q632GIEfHI7cdqm8AxfROtLafl1OfqeyMa3MFUtHPJtNBtztjxrFSTLlNQuV7XjvH12CcSGIl1HCeHEfks5+yarhnR4A60kN3R0eI62PBbcUL5Mb3UaluVSQQr1w/5kgjXJGzzIhp8GldEG3K0cM+7Xivi2X1f+Jp/xC6MkbLJcP3oeCZV91z9ZkM0uIP/iDZEEWn2R0MZ03x39aEdTWg5KqcKY/Omaxk2ASfQbI2IBrdwRTRh+JPCHNeEoZBtAQ+y+flOOszYvQpetl7EmWiCfYeVoyPAJyJeIRpANOIVogFEI14hGkA04hWiAUQjXiEaQDTiFaIBxJLzL6K00BLnDNxHAAAAAElFTkSuQmCC" SearchSteps="CV" />
-                                </scg:List>
-                              </uix:TargetAnchorable.Anchors>
-                            </uix:TargetAnchorable>
-                          </uix:NTypeInto.Target>
-                        </uix:NTypeInto>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email or UserName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="siant@mbdinc.co.za[k(Enter)]" Version="V3">
-                          <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" DesignTimeRectangle="234, 305, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MainContent_Email'" FullSelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' type='text' class='form-control' aaname='Email or UserName' /&gt;" Guid="37f24ca7-8ea8-453e-bb5d-c065fb7862c4" InformativeScreenshot="55cc2d81220f566bca923406928ded16.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
-                              <uix:TargetAnchorable.Anchors>
-                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                  <uix:Target DesignTimeRectangle="5, 305, 214, 27" ElementType="Text" FriendlyName="'Email or UserName'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='col-md-2 control-label' aaname='Email or UserName' check:innerText='Email or UserName' /&gt;" ImageBase64="" SearchSteps="Selector" />
-                                </scg:List>
-                              </uix:TargetAnchorable.Anchors>
-                            </uix:TargetAnchorable>
-                          </uix:NTypeInto.Target>
-                        </uix:NTypeInto>
-                      </Sequence>
-                    </uix:NCheckState.IfNotExists>
-                    <uix:NCheckState.Target>
-                      <uix:TargetAnchorable BrowserURL="https://fnbloans.revenuered.com/General/Common/DebtSearch" CvTextArea="1743, 126, 142, 16" CvTextArgument="%[rudolphb@mbd.co.za]" CvType="Text" DesignTimeRectangle="1729, 108, 171, 50" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'email'" FullSelectorArgument="&lt;webctrl aaname='[rudolphb@mbd.co.za]' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='[rudolphb@mbd.co.za]' tag='A' type='' class='' check:innerText='[rudolphb@mbd.co.za]' /&gt;" Guid="7eb757fe-1b42-4033-8a1a-81ca766d0475" InformativeScreenshot="5ed76dcfb70263d95ffb74defef04a32.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBLoans' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target CvTextArea="1671, 126, 44, 16" CvTextArgument="Log off" CvType="Text" DesignTimeRectangle="1656, 108, 73, 50" ElementType="Text" FriendlyName="'Log off'" FullSelectorArgument="&lt;webctrl aaname='Log off' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Log off' tag='A' type='' class='' check:innerText='Log off' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAA2CAYAAACC7BSyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVHhe7ZtRboQgEIZ99Byei8twD47gJXhrE+40LSOso6Xb+Me41P1JvkRgjDsfA+6Lg7AdbsM4jkKOMUzTJOQYlAZAaQCUBkBpAJQGQGkAlAZAaQCUBkBpAJQGQGkAlAZAaQCUBkBpAJQGQGkAlAZwmjQXoqTZN+eux0mISVLKzOL9XK6TxOAa8ce4pzQXJGZZpe/nc2RVLpWmMWXFtQLsvCa6zoUcG4M4G2Mx1ZNSlOBa40k+PtfrH88EuUzaImz90du+l/k7qUc1VIG/SVMxe1Gmf49KW6TM3o4t544mk5PeCcqJtqWZ+8y4xtfn30KaJmEqoVCTad2rY01prQXYPZ/Stve8jzRuzzbPpZV5k8i2/84vgpzoHiNyG7MmpVRRZU7/cjxZhEVUjd9t/f8i7Wz+qtxX0oc0rRpbee3Dvhe6qTQ9yB/brV9hmW63Z89QGgClAVAaAKUBUBoApQFQGgClAVAaAKUBUBoApQFQGgClAVAaAKUB8HNsAH74f7iJfAE0zTTdXOVC/AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, CV" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:NCheckState.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </uix:NCheckState>
-                </Sequence>
-              </ActivityAction>
-            </uix:NApplicationCard.Body>
-            <uix:NApplicationCard.TargetApp>
-              <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="f5576083694d9cdc77f028ade0c1343f.jpg" Selector="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" Title="View Case - FNBCCard" Url="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon%2FDebtSearch" />
-            </uix:NApplicationCard.TargetApp>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1150,1494" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </uix:NApplicationCard>
-        </Sequence>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,513" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="s:Exception">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-            </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="450,444" sap2010:WorkflowViewState.IdRef="Sequence_21">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Unable to Login to FNB CAS Cards&quot;]" />
-              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Details: &quot;+&quot;https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon%2FDebtSearch&quot;+vbCrLf+&quot;Username: siant@mbdinc.co.za&quot;]" DisplayName="Send SMTP Original - Upload Confirmation" Email="no-replyrpa@nutun.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="388,152" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="25" SecureConnection="Auto" Server="192.168.9.40" Subject="RPA021 CAS Cards Login Failed" To="kobusd@nutun.com">
-                <ui:SendMail.Files>
-                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
-                </ui:SendMail.Files>
-              </ui:SendMail>
-            </Sequence>
-          </ActivityAction>
-        </Catch>
-      </TryCatch.Catches>
-    </TryCatch>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="490,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Cards login complete...&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="490,676" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-      <TryCatch.Try>
-        <Sequence DisplayName="Loans Login" sap:VirtualizedContainerService.HintSize="1112,958" sap2010:WorkflowViewState.IdRef="Sequence_11">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: View Case - FNBloans" sap:VirtualizedContainerService.HintSize="1050,847" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[outChromeElementLoans]" ScopeGuid="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Version="V2" WindowResize="Maximize">
-            <uix:NApplicationCard.Body>
-              <ActivityAction x:TypeArguments="x:Object">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,590" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <TryCatch.Try>
+              <Sequence DisplayName="Loans Login" sap:VirtualizedContainerService.HintSize="1112,1243" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: View Case - FNBloans" sap:VirtualizedContainerService.HintSize="1050,1155" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[outChromeElementLoans]" ScopeGuid="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Version="V2" WindowResize="Maximize">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,915" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NCheckState DisplayName="Check App State 'Account or Reference'" sap:VirtualizedContainerService.HintSize="954,825" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Timeout="7" Version="V3">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,168" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Already logged in&quot;]" />
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,583" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Default="MBDFNBCaspw@June2024" Name="str_LoansPass" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,250" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="[str_LoansPass]" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" CvElementArea="231, 372, 509, 37" CvType="InputBox" DesignTimeRectangle="234, 374, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT MainContent_Passw…'" FullSelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' type='password' class='form-control' aaname='Password' /&gt;" Guid="b9d11ae9-2cd7-44df-b725-dc2b517540e4" InformativeScreenshot="a2a7bd0525cf80646563d424bf227fca.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CvTextArea="137, 384, 67, 13" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="137, 384, 67, 13" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' class='col-md-2 control-label' check:innerText='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANoAAAAfCAYAAACBONPcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVHhe7ZjRjYMwDEBvp66VUZiGUVijQ+RciJPYISdOqpFavSf5o2CSIPnFoT9C9gEA70W8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRIMJzzWnxyM/TmLZSs5X8sxrer3nkt/1muIVosGEP0R7xffKhmhwJypaWqX0Gs817aKlVa9ueekEHCTcFnNvNl4NfVifq4PpPCm3qY+cuha/OdiFlOeXvCz2fr+GtG6IBjdySTTd/X2UIp11RS+Ti2PsIobO342lYm27MEW82Vx1/ZMNYbIGRIN7mBXuHl1XMah4rvhNZ+nwHcnRi2Q632GIEfHI7cdqm8AxfROtLafl1OfqeyMa3MFUtHPJtNBtztjxrFSTLlNQuV7XjvH12CcSGIl1HCeHEfks5+yarhnR4A60kN3R0eI62PBbcUL5Mb3UaluVSQQr1w/5kgjXJGzzIhp8GldEG3K0cM+7Xivi2X1f+Jp/xC6MkbLJcP3oeCZV91z9ZkM0uIP/iDZEEWn2R0MZ03x39aEdTWg5KqcKY/Omaxk2ASfQbI2IBrdwRTRh+JPCHNeEoZBtAQ+y+flOOszYvQpetl7EmWiCfYeVoyPAJyJeIRpANOIVogFEI14hGkA04hWiAUQjXiEaQDTiFaIBxJLzL6K00BLnDNxHAAAAAElFTkSuQmCC" SearchSteps="CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                              </uix:NTypeInto>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email or UserName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,243" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="rudolphb@mbd.co.za[k(Enter)]" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" DesignTimeRectangle="234, 305, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MainContent_Email'" FullSelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' type='text' class='form-control' aaname='Email or UserName' /&gt;" Guid="37f24ca7-8ea8-453e-bb5d-c065fb7862c4" InformativeScreenshot="55cc2d81220f566bca923406928ded16.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target DesignTimeRectangle="5, 305, 214, 27" ElementType="Text" FriendlyName="'Email or UserName'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='col-md-2 control-label' aaname='Email or UserName' check:innerText='Email or UserName' /&gt;" ImageBase64="" SearchSteps="Selector" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                              </uix:NTypeInto>
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/DebtSearch" CvTextArea="63, 233, 101, 12" CvTextArgument="Account or Reference" CvType="Text" DesignTimeRectangle="21, 225, 158, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Account or Reference'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='col-sm-1 col-md-1 col-lg-1 control-label' aaname='Account or Reference' check:innerText='Account or Reference' /&gt;" Guid="e3920e2c-944e-4906-8b77-96a30fe6f1d9" InformativeScreenshot="8b05d5b69191d411ed9130b5a3728731.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBCCard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArea="63, 233, 101, 12" CvTextArgument="Account or Reference" CvType="Text" DesignTimeRectangle="63, 233, 101, 12" ElementType="Text" FriendlyName="'Account or Reference'" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NCheckState.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NCheckState>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="f5576083694d9cdc77f028ade0c1343f.jpg" Selector="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" Title="View Case - FNBCCard" Url="https://fnbloans.revenuered.com/General/Common/DebtSearch" />
+                  </uix:NApplicationCard.TargetApp>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NCheckState DisplayName="Check App State 'email'" sap:VirtualizedContainerService.HintSize="954,475" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Timeout="7" Version="V3">
-                    <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Already logged in&quot;]" />
-                      </Sequence>
-                    </uix:NCheckState.IfExists>
-                    <uix:NCheckState.IfNotExists>
-                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="str_LoansPass" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="FNB CAS LOANS LOGIN" CacheStrategy="None" DisplayName="Get Asset" FolderPath="TCR_Main" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
-                          <ui:GetRobotAsset.Value>
-                            <OutArgument x:TypeArguments="x:String">[str_LoansPass]</OutArgument>
-                          </ui:GetRobotAsset.Value>
-                        </ui:GetRobotAsset>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="[str_LoansPass]" Version="V3">
-                          <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" CvElementArea="231, 372, 509, 37" CvType="InputBox" DesignTimeRectangle="234, 374, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT MainContent_Passw…'" FullSelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' type='password' class='form-control' aaname='Password' /&gt;" Guid="b9d11ae9-2cd7-44df-b725-dc2b517540e4" InformativeScreenshot="a2a7bd0525cf80646563d424bf227fca.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                              <uix:TargetAnchorable.Anchors>
-                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                  <uix:Target CvTextArea="137, 384, 67, 13" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="137, 384, 67, 13" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' class='col-md-2 control-label' check:innerText='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANoAAAAfCAYAAACBONPcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVHhe7ZjRjYMwDEBvp66VUZiGUVijQ+RciJPYISdOqpFavSf5o2CSIPnFoT9C9gEA70W8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRIMJzzWnxyM/TmLZSs5X8sxrer3nkt/1muIVosGEP0R7xffKhmhwJypaWqX0Gs817aKlVa9ueekEHCTcFnNvNl4NfVifq4PpPCm3qY+cuha/OdiFlOeXvCz2fr+GtG6IBjdySTTd/X2UIp11RS+Ti2PsIobO342lYm27MEW82Vx1/ZMNYbIGRIN7mBXuHl1XMah4rvhNZ+nwHcnRi2Q632GIEfHI7cdqm8AxfROtLafl1OfqeyMa3MFUtHPJtNBtztjxrFSTLlNQuV7XjvH12CcSGIl1HCeHEfks5+yarhnR4A60kN3R0eI62PBbcUL5Mb3UaluVSQQr1w/5kgjXJGzzIhp8GldEG3K0cM+7Xivi2X1f+Jp/xC6MkbLJcP3oeCZV91z9ZkM0uIP/iDZEEWn2R0MZ03x39aEdTWg5KqcKY/Omaxk2ASfQbI2IBrdwRTRh+JPCHNeEoZBtAQ+y+flOOszYvQpetl7EmWiCfYeVoyPAJyJeIRpANOIVogFEI14hGkA04hWiAUQjXiEaQDTiFaIBxJLzL6K00BLnDNxHAAAAAElFTkSuQmCC" SearchSteps="CV" />
-                                </scg:List>
-                              </uix:TargetAnchorable.Anchors>
-                            </uix:TargetAnchorable>
-                          </uix:NTypeInto.Target>
-                        </uix:NTypeInto>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email or UserName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="rudolphb@mbd.co.za[k(Enter)]" Version="V3">
-                          <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" DesignTimeRectangle="234, 305, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MainContent_Email'" FullSelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' type='text' class='form-control' aaname='Email or UserName' /&gt;" Guid="37f24ca7-8ea8-453e-bb5d-c065fb7862c4" InformativeScreenshot="55cc2d81220f566bca923406928ded16.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
-                              <uix:TargetAnchorable.Anchors>
-                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                  <uix:Target DesignTimeRectangle="5, 305, 214, 27" ElementType="Text" FriendlyName="'Email or UserName'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='col-md-2 control-label' aaname='Email or UserName' check:innerText='Email or UserName' /&gt;" ImageBase64="" SearchSteps="Selector" />
-                                </scg:List>
-                              </uix:TargetAnchorable.Anchors>
-                            </uix:TargetAnchorable>
-                          </uix:NTypeInto.Target>
-                        </uix:NTypeInto>
-                      </Sequence>
-                    </uix:NCheckState.IfNotExists>
-                    <uix:NCheckState.Target>
-                      <uix:TargetAnchorable BrowserURL="https://fnbloans.revenuered.com/General/Common/DebtSearch" CvTextArea="1743, 126, 142, 16" CvTextArgument="%[rudolphb@mbd.co.za]" CvType="Text" DesignTimeRectangle="1729, 108, 171, 50" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'email'" FullSelectorArgument="&lt;webctrl aaname='[rudolphb@mbd.co.za]' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='[rudolphb@mbd.co.za]' tag='A' type='' class='' check:innerText='[rudolphb@mbd.co.za]' /&gt;" Guid="7eb757fe-1b42-4033-8a1a-81ca766d0475" InformativeScreenshot="5ed76dcfb70263d95ffb74defef04a32.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBLoans' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target CvTextArea="1671, 126, 44, 16" CvTextArgument="Log off" CvType="Text" DesignTimeRectangle="1656, 108, 73, 50" ElementType="Text" FriendlyName="'Log off'" FullSelectorArgument="&lt;webctrl aaname='Log off' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Log off' tag='A' type='' class='' check:innerText='Log off' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAA2CAYAAACC7BSyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVHhe7ZtRboQgEIZ99Byei8twD47gJXhrE+40LSOso6Xb+Me41P1JvkRgjDsfA+6Lg7AdbsM4jkKOMUzTJOQYlAZAaQCUBkBpAJQGQGkAlAZAaQCUBkBpAJQGQGkAlAZAaQCUBkBpAJQGQGkAlAZwmjQXoqTZN+eux0mISVLKzOL9XK6TxOAa8ce4pzQXJGZZpe/nc2RVLpWmMWXFtQLsvCa6zoUcG4M4G2Mx1ZNSlOBa40k+PtfrH88EuUzaImz90du+l/k7qUc1VIG/SVMxe1Gmf49KW6TM3o4t544mk5PeCcqJtqWZ+8y4xtfn30KaJmEqoVCTad2rY01prQXYPZ/Stve8jzRuzzbPpZV5k8i2/84vgpzoHiNyG7MmpVRRZU7/cjxZhEVUjd9t/f8i7Wz+qtxX0oc0rRpbee3Dvhe6qTQ9yB/brV9hmW63Z89QGgClAVAaAKUBUBoApQFQGgClAVAaAKUBUBoApQFQGgClAVAaAKUB8HNsAH74f7iJfAE0zTTdXOVC/AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, CV" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:NCheckState.Target>
+                </uix:NApplicationCard>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1116,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="450,438" sap2010:WorkflowViewState.IdRef="Sequence_20">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </uix:NCheckState>
-                </Sequence>
-              </ActivityAction>
-            </uix:NApplicationCard.Body>
-            <uix:NApplicationCard.TargetApp>
-              <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="f5576083694d9cdc77f028ade0c1343f.jpg" Selector="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" Title="View Case - FNBCCard" Url="https://fnbloans.revenuered.com/General/Common/DebtSearch" />
-            </uix:NApplicationCard.TargetApp>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;Unable to Login to FNB CAS Loans&quot;]" />
+                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Details: &quot;+&quot;https://fnbloans.revenuered.com/General/Common/DebtSearch&quot;+vbCrLf+&quot;Username: rudolphb@mbd.co.za&quot;]" DisplayName="Send SMTP Original - Upload Confirmation" Email="no-replyrpa@nutun.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="388,146" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Port="25" SecureConnection="Auto" Server="192.168.9.40" Subject="RPA021 CAS Loans Login Failed" To="kobusd@nutun.com">
+                      <ui:SendMail.Files>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                      </ui:SendMail.Files>
+                    </ui:SendMail>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="530,397" sap2010:WorkflowViewState.IdRef="Sequence_23">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488,309" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </uix:NApplicationCard>
+            <TryCatch.Try>
+              <Sequence DisplayName="Cards Login" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: View Case - FNBCCard" sap:VirtualizedContainerService.HintSize="1050,1180" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[outChromeElementCards]" ScopeGuid="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Version="V2" WindowResize="Maximize">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,963" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NCheckState DisplayName="Check App State 'Account or Reference'" sap:VirtualizedContainerService.HintSize="954,848" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Timeout="7" Version="V3">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Already logged in&quot;]" />
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,591" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="[str_CARDSPass]" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" CvElementArea="231, 372, 509, 37" CvType="InputBox" DesignTimeRectangle="234, 374, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT MainContent_Passw…'" FullSelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Password' tag='INPUT' type='password' class='form-control' aaname='Password' /&gt;" Guid="b9d11ae9-2cd7-44df-b725-dc2b517540e4" InformativeScreenshot="a2a7bd0525cf80646563d424bf227fca.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CvTextArea="137, 384, 67, 13" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="137, 384, 67, 13" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' class='col-md-2 control-label' check:innerText='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANoAAAAfCAYAAACBONPcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVHhe7ZjRjYMwDEBvp66VUZiGUVijQ+RciJPYISdOqpFavSf5o2CSIPnFoT9C9gEA70W8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRAOIRrxCNIBoxCtEA4hGvEI0gGjEK0QDiEa8QjSAaMQrRIMJzzWnxyM/TmLZSs5X8sxrer3nkt/1muIVosGEP0R7xffKhmhwJypaWqX0Gs817aKlVa9ueekEHCTcFnNvNl4NfVifq4PpPCm3qY+cuha/OdiFlOeXvCz2fr+GtG6IBjdySTTd/X2UIp11RS+Ti2PsIobO342lYm27MEW82Vx1/ZMNYbIGRIN7mBXuHl1XMah4rvhNZ+nwHcnRi2Q632GIEfHI7cdqm8AxfROtLafl1OfqeyMa3MFUtHPJtNBtztjxrFSTLlNQuV7XjvH12CcSGIl1HCeHEfks5+yarhnR4A60kN3R0eI62PBbcUL5Mb3UaluVSQQr1w/5kgjXJGzzIhp8GldEG3K0cM+7Xivi2X1f+Jp/xC6MkbLJcP3oeCZV91z9ZkM0uIP/iDZEEWn2R0MZ03x39aEdTWg5KqcKY/Omaxk2ASfQbI2IBrdwRTRh+JPCHNeEoZBtAQ+y+flOOszYvQpetl7EmWiCfYeVoyPAJyJeIRpANOIVogFEI14hGkA04hWiAUQjXiEaQDTiFaIBxJLzL6K00BLnDNxHAAAAAElFTkSuQmCC" SearchSteps="CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                              </uix:NTypeInto>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email or UserName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="8588b05b-1a86-4fc7-8cb0-f2aed3d1a647" Text="phindilem4@nutun.com[k(Enter)]" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon" DesignTimeRectangle="234, 305, 505, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MainContent_Email'" FullSelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MainContent_Email' tag='INPUT' type='text' class='form-control' aaname='Email or UserName' /&gt;" Guid="37f24ca7-8ea8-453e-bb5d-c065fb7862c4" InformativeScreenshot="55cc2d81220f566bca923406928ded16.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Log in - FNBCCard' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target DesignTimeRectangle="5, 305, 214, 27" ElementType="Text" FriendlyName="'Email or UserName'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='col-md-2 control-label' aaname='Email or UserName' check:innerText='Email or UserName' /&gt;" ImageBase64="" SearchSteps="Selector" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                              </uix:NTypeInto>
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable BrowserURL="https://fnbccard.revenuered.com/General/Common/DebtSearch" CvTextArea="63, 233, 101, 12" CvTextArgument="Account or Reference" CvType="Text" DesignTimeRectangle="21, 225, 158, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Account or Reference'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='col-sm-1 col-md-1 col-lg-1 control-label' aaname='Account or Reference' check:innerText='Account or Reference' /&gt;" Guid="f902bd10-d01e-495a-b8f9-718879ecab57" InformativeScreenshot="8b05d5b69191d411ed9130b5a3728731.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search - FNBCCard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArea="63, 233, 101, 12" CvTextArgument="Account or Reference" CvType="Text" DesignTimeRectangle="63, 233, 101, 12" ElementType="Text" FriendlyName="'Account or Reference'" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NCheckState.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NCheckState>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="f5576083694d9cdc77f028ade0c1343f.jpg" Selector="&lt;html app='chrome.exe' title='View Case - FNBCCard' /&gt;" Title="View Case - FNBCCard" Url="https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon%2FDebtSearch" />
+                  </uix:NApplicationCard.TargetApp>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NApplicationCard>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="454,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="450,444" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Unable to Login to FNB CAS Cards&quot;]" />
+                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Details: &quot;+&quot;https://fnbccard.revenuered.com/Account/Login?ReturnUrl=%2FGeneral%2FCommon%2FDebtSearch&quot;+vbCrLf+&quot;Username: siant@mbdinc.co.za&quot;]" DisplayName="Send SMTP Original - Upload Confirmation" Email="no-replyrpa@nutun.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="388,146" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="25" SecureConnection="Auto" Server="192.168.9.40" Subject="RPA021 CAS Cards Login Failed" To="kobusd@nutun.com">
+                      <ui:SendMail.Files>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                      </ui:SendMail.Files>
+                    </ui:SendMail>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
         </Sequence>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,513" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="s:Exception">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-            </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="450,444" sap2010:WorkflowViewState.IdRef="Sequence_20">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;Unable to Login to FNB CAS Loans&quot;]" />
-              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Details: &quot;+&quot;https://fnbloans.revenuered.com/General/Common/DebtSearch&quot;+vbCrLf+&quot;Username: rudolphb@mbd.co.za&quot;]" DisplayName="Send SMTP Original - Upload Confirmation" Email="no-replyrpa@nutun.com" EnableSSL="True" sap:VirtualizedContainerService.HintSize="388,152" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Port="25" SecureConnection="Auto" Server="192.168.9.40" Subject="RPA021 CAS Loans Login Failed" To="kobusd@nutun.com">
-                <ui:SendMail.Files>
-                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
-                </ui:SendMail.Files>
-              </ui:SendMail>
-            </Sequence>
-          </ActivityAction>
-        </Catch>
-      </TryCatch.Catches>
-    </TryCatch>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="490,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Login Complete...&quot;]" />
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1226,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Cards login complete...&quot;]" />
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1226,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Login Complete...&quot;]" />
   </Sequence>
 </Activity>

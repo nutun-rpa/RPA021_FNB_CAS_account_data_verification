@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1218,2562</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1026,2430</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -121,7 +121,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="634,2497" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="634,2325" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="wClientCode" />
       <Variable x:TypeArguments="x:String" Name="szCheetahSurname" />
@@ -138,7 +138,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="572,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <Sequence DisplayName="Retrieving Variables" sap:VirtualizedContainerService.HintSize="572,1365" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence DisplayName="Retrieving Variables" sap:VirtualizedContainerService.HintSize="572,1335" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -177,14 +177,31 @@
           <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("szFirstName").toString]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Assign - URL" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_5">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[accountURL]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("URL").toString]</InArgument>
-        </Assign.Value>
-      </Assign>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign - URL" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[accountURL]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("URL").toString]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
       <Assign DisplayName="Assign - AccountType" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_6">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[wClientCode]</OutArgument>
@@ -236,7 +253,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <ui:IfElseIfV2 Condition="[AccountType.Equals(&quot;Cards&quot;)]" DisplayName="Else if" sap:VirtualizedContainerService.HintSize="572,632" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+    <ui:IfElseIfV2 Condition="[AccountType.Equals(&quot;Cards&quot;)]" DisplayName="Else if" sap:VirtualizedContainerService.HintSize="572,490" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
       <ui:IfElseIfV2.Else>
         <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="376,201" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -246,33 +263,15 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom Work\AccountInfoRetreival.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_ChromeElement">
-                <VisualBasicValue x:TypeArguments="ui:UiElement" ExpressionText="outChromeElementLoans" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szAccountNumber">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szAccountNumber" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szCheetahDebtorSurname">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szCheetahSurname" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szReferenceNumber">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szReferenceNumber" />
-              </InArgument>
-              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="AccountType">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="AccountType" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="navigateURLDebtSearch">
-                <Literal x:TypeArguments="x:String">https://fnbloans.revenuered.com/General/Common/DebtSearch</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="accountURL">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="accountURL" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szFirstName">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szFirstName" />
-              </InArgument>
+              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_ChromeElement">[outChromeElementLoans]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szAccountNumber">[szAccountNumber]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szCheetahDebtorSurname">[szCheetahSurname]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szReferenceNumber">[szReferenceNumber]</InArgument>
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="AccountType">[AccountType]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="navigateURLDebtSearch">https://fnbloans.revenuered.com/General/Common/DebtSearch</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="accountURL">[accountURL]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szFirstName">[szFirstName]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
@@ -287,41 +286,23 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:IfElseIfV2.Then>
-        <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="376,201" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom Work\AccountInfoRetreival.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom Work\AccountInfoRetreival.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_ChromeElement">
-                <VisualBasicValue x:TypeArguments="ui:UiElement" ExpressionText="outChromeElementCards" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szAccountNumber">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szAccountNumber" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szCheetahDebtorSurname">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szCheetahSurname" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szReferenceNumber">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szReferenceNumber" />
-              </InArgument>
-              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="AccountType">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="AccountType" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="navigateURLDebtSearch">
-                <Literal x:TypeArguments="x:String">https://fnbccard.revenuered.com/General/Common/DebtSearch</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="accountURL">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="accountURL" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="szFirstName">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="szFirstName" />
-              </InArgument>
+              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_ChromeElement">[outChromeElementCards]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szAccountNumber">[szAccountNumber]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szCheetahDebtorSurname">[szCheetahSurname]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szReferenceNumber">[szReferenceNumber]</InArgument>
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="AccountType">[AccountType]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="navigateURLDebtSearch">https://fnbccard.revenuered.com/General/Common/DebtSearch</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="accountURL">[accountURL]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="szFirstName">[szFirstName]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>

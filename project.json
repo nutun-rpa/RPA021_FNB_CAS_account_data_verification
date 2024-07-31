@@ -9,7 +9,7 @@
     "UiPath.Mail.Activities": "[1.22.2]",
     "UiPath.PDF.Activities": "[3.16.0]",
     "UiPath.Persistence.Activities": "[1.4.8]",
-    "UiPath.System.Activities": "[24.3.0]",
+    "UiPath.System.Activities": "[24.10.4]",
     "UiPath.Testing.Activities": "[23.10.1]",
     "UiPath.UIAutomation.Activities": "[23.10.9]"
   },
@@ -17,7 +17,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.10.4.0",
-  "projectVersion": "2024.4.13",
+  "projectVersion": "2024.7.27",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -104,6 +104,18 @@
     {
       "filePath": "Custom Work\\Dispatcher.xaml",
       "uniqueId": "cb8fadbf-e13a-41ee-bf52-7a4255d64de9",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Cards.xaml",
+      "uniqueId": "252fc525-bdda-4772-814e-302b4218fb3b",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Loans.xaml",
+      "uniqueId": "ad3a1022-bb35-40bc-a406-08e2b642c200",
       "input": [],
       "output": []
     }
