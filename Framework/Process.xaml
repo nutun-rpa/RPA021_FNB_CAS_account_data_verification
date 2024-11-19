@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1371,2743</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1282,3149</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -125,7 +125,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="654,2678" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="713,3084" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="wClientCode" />
       <Variable x:TypeArguments="x:String" Name="szCheetahSurname" />
@@ -141,15 +141,15 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="592,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <Sequence DisplayName="Retrieving Variables" sap:VirtualizedContainerService.HintSize="592,1314" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="651,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <Sequence DisplayName="Retrieving Variables" sap:VirtualizedContainerService.HintSize="651,1650" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="Assign - szReferenceNumber" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign DisplayName="Assign - szReferenceNumber" sap:VirtualizedContainerService.HintSize="589,82" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[szReferenceNumber]</OutArgument>
         </Assign.To>
@@ -157,7 +157,7 @@
           <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("szReferenceNumber").toString]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Assign - szAccountNumber" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign DisplayName="Assign - szAccountNumber" sap:VirtualizedContainerService.HintSize="589,82" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[szAccountNumber]</OutArgument>
         </Assign.To>
@@ -165,7 +165,7 @@
           <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("szAccountNumber").toString]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Assign - szCheetahDebtorSurnameName" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign DisplayName="Assign - szCheetahDebtorSurnameName" sap:VirtualizedContainerService.HintSize="589,82" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[szCheetahSurname]</OutArgument>
         </Assign.To>
@@ -173,7 +173,7 @@
           <InArgument x:TypeArguments="x:String">[(in_TransactionItem.SpecificContent("szSurname").toString).Split(" "c).Last()]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Assign - szCheetahDebtorSurnameName" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign DisplayName="Assign - szCheetahDebtorSurnameName" sap:VirtualizedContainerService.HintSize="589,82" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[szFirstName]</OutArgument>
         </Assign.To>
@@ -181,7 +181,7 @@
           <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("szFirstName").toString]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="530,84" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="589,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
@@ -206,7 +206,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <Assign DisplayName="Assign - AccountType" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign DisplayName="Assign - AccountType" sap:VirtualizedContainerService.HintSize="589,82" sap2010:WorkflowViewState.IdRef="Assign_6">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[wClientCode]</OutArgument>
         </Assign.To>
@@ -214,21 +214,15 @@
           <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("wClientCode").toString]</InArgument>
         </Assign.Value>
       </Assign>
-      <If Condition="[wClientCode.Equals(&quot;-10611&quot;)]" DisplayName="If - determine account type by looking at client code" sap:VirtualizedContainerService.HintSize="530,545" sap2010:WorkflowViewState.IdRef="If_1">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_9">
+      <ui:IfElseIfV2 Condition="[wClientCode.Equals(&quot;-10610&quot;) or wClientCode.Equals(&quot;639&quot;) or wClientCode.Equals(&quot;-10536&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="589,837" sap2010:WorkflowViewState.IdRef="IfElseIfV2_2">
+        <ui:IfElseIfV2.Else>
+          <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,104" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_12">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[AccountType]</OutArgument>
               </Assign.To>
@@ -237,15 +231,38 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-        </If.Then>
-        <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        </ui:IfElseIfV2.Else>
+        <ui:IfElseIfV2.ElseIfs>
+          <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[wClientCode.Equals(&quot;-10611&quot;) or wClientCode.Equals(&quot;-10578&quot;) or wClientCode.Equals(&quot;750&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+              <ui:IfElseIfBlock.Then>
+                <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[AccountType]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">Loans</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:IfElseIfBlock.Then>
+            </ui:IfElseIfBlock>
+          </sc:BindingList>
+        </ui:IfElseIfV2.ElseIfs>
+        <ui:IfElseIfV2.Then>
+          <Sequence DisplayName="" sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,104" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[AccountType]</OutArgument>
               </Assign.To>
@@ -254,18 +271,18 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-        </If.Else>
-      </If>
+        </ui:IfElseIfV2.Then>
+      </ui:IfElseIfV2>
     </Sequence>
-    <ui:IfElseIfV2 Condition="[AccountType.Equals(&quot;Cards&quot;)]" DisplayName="Else if" sap:VirtualizedContainerService.HintSize="592,952" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+    <ui:IfElseIfV2 Condition="[AccountType.Equals(&quot;Cards&quot;)]" DisplayName="Else if" sap:VirtualizedContainerService.HintSize="651,934" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
       <ui:IfElseIfV2.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,367" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AccountInfoRetreival - BSS Template - Invoke Workflow File (Custom Work\AccountInfoRetreival - BSS Template.xaml)" sap:VirtualizedContainerService.HintSize="354,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival - BSS Template.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AccountInfoRetreival - BSS Template - Invoke Workflow File (Custom Work\AccountInfoRetreival - BSS Template.xaml)" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival - BSS Template.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="ui:UiElement" x:Key="in_ChromeElement">[outChromeElement]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="szAccountNumber">[szAccountNumber]</InArgument>
@@ -277,7 +294,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="szFirstName">[szFirstName]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,75" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="CommentOut_3">
             <ui:CommentOut.Body>
               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,283" sap2010:WorkflowViewState.IdRef="Sequence_13">
                 <sap:WorkflowViewStateService.ViewState>
@@ -325,13 +342,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:IfElseIfV2.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,367" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AccountInfoRetreival - BSS Template - Invoke Workflow File (Custom Work\AccountInfoRetreival - BSS Template.xaml)" sap:VirtualizedContainerService.HintSize="354,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival - BSS Template.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AccountInfoRetreival - BSS Template - Invoke Workflow File (Custom Work\AccountInfoRetreival - BSS Template.xaml)" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival - BSS Template.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="ui:UiElement" x:Key="in_ChromeElement">[outChromeElement]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="szAccountNumber">[szAccountNumber]</InArgument>
@@ -343,15 +360,15 @@
               <InArgument x:TypeArguments="x:String" x:Key="szFirstName">[szFirstName]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,75" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="CommentOut_2">
             <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,283" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,283" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom Work\AccountInfoRetreival.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom Work\AccountInfoRetreival.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom Work\AccountInfoRetreival.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="ui:UiElement" x:Key="in_ChromeElement">[outChromeElementCards]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="szAccountNumber">[szAccountNumber]</InArgument>
@@ -376,6 +393,6 @@
         </Sequence>
       </ui:IfElseIfV2.Then>
     </ui:IfElseIfV2>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="592,79" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="592,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
   </Sequence>
 </Activity>
